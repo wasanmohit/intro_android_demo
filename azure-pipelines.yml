@@ -19,15 +19,10 @@ steps:
     publishJUnitResults: false
     testResultsFiles: '**/TEST-*.xml'
     tasks: 'assembleDebug'
-- task: AppCenterTest@1
-  inputs:
-    appFile: '$(Build.ArtifactStagingDirectory)/*.apk'
-    artifactsDirectory: '$(Build.ArtifactStagingDirectory)/AppCenterTest'
-    prepareTests: false
-    runTests: false    
+
 - task: CopyFiles@2
   inputs:
-    Contents: '**'
+    Contents: '*.apk'
     TargetFolder: '$(build.artifactstagingdirectory)'
 - task: PublishBuildArtifacts@1
   inputs:
