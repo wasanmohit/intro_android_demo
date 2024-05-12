@@ -1,4 +1,5 @@
 # Android
+
 # Build your Android project with Gradle.
 # Add steps that test, sign, and distribute the APK, save build artifacts, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/android
@@ -18,6 +19,12 @@ steps:
     publishJUnitResults: false
     testResultsFiles: '**/TEST-*.xml'
     tasks: 'assembleDebug'
+- task: AppCenterTest@1
+  inputs:
+    appFile: 'drop/app/build/outputs/apk/debug'
+    artifactsDirectory: '$(Build.ArtifactStagingDirectory)/AppCenterTest'
+    prepareTests: false
+    runTests: false    
 - task: CopyFiles@2
   inputs:
     Contents: '**'
