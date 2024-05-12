@@ -21,7 +21,7 @@ steps:
     tasks: 'assembleDebug'
 - task: AppCenterTest@1
   inputs:
-    appFile: 'drop/app/build/outputs/apk/debug'
+    appFile: 'drop/app/build/outputs/apk/debug/*.apk'
     artifactsDirectory: '$(Build.ArtifactStagingDirectory)/AppCenterTest'
     prepareTests: false
     runTests: false    
