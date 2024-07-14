@@ -9,6 +9,7 @@ trigger:
 
 pool:
   name: demo
+  demands: java
 
 steps:
 - task: Gradle@2
